@@ -3,7 +3,7 @@
 
 [![DSF logo](https://img.shields.io/badge/DSF%20Trading-blue?link=https%3A%2F%2Fdsf.kz%2F
 )](https://dsf.kz)
-[![Extension version](https://img.shields.io/badge/extension-v.1.0.1.15-blue
+[![Extension version](https://img.shields.io/badge/extension-1.0.1.15-blue
 )](https://dsf.kz)
 [![MarketApi](https://img.shields.io/badge/%D0%9E%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5%20API%20%D0%B4%D0%BB%D1%8F%20%D0%B2%D0%B7%D0%B0%D0%B8%D0%BC%D0%BE%D0%B4%D0%B5%D0%B9%D1%81%D1%82%D0%B2%D0%B8%D1%8F-xml-green?style=flat-square&logo=%23F9AB00&link=https%3A%2F%2Fyandex.ru%2Fdev%2Fmarket%2Ffulfillment%2Fru%2F
 )](https://yandex.ru/dev/market/fulfillment/ru/)
@@ -58,17 +58,19 @@ Content-Type: application/xml
 
 type `putInbound`
 
+*Позволяет изменять существующее состояние заявки или добавлять новую запись о планируемой поставке товара на склад.*
+
 ```text
 POST /hs/ym/api/inbounds HTTP/1.1
 Host: example.com
 Content-Type: application/xml
 ```
 
-Позволяет изменять существующее состояние заявки или добавлять новую запись о планируемой поставке товара на склад.
-
 - #### Формирование или изменение реестра приемки товаров
 
 type `putInboundRegistry`
+
+*Применяется для регистрации плана поступления товаров на склад с детализацией по номенклатуре, её качеству и количеству.*
 
 ```text
 POST /hs/ym/api/inbounds/registries HTTP/1.1
@@ -76,11 +78,11 @@ Host: example.com
 Content-Type: application/xml
 ```
 
-Применяется для регистрации плана поступления товаров на склад с детализацией по номенклатуре, её качеству и количеству.
-
 - #### Получение актуальной информации о статусе заявки на приемку
 
 type `getInboundsStatus`
+
+*Необходим для оперативного мониторинга состояний различных заявок на приемку товаров.*
 
 ```text
 POST /hs/ym/api/inbounds/statuses HTTP/1.1
@@ -88,11 +90,11 @@ Host: example.com
 Content-Type: application/xml
 ```
 
-Необходим для оперативного мониторинга состояний различных заявок на приемку товаров*
-
 - #### История изменений статуса заявки на приемку
 
 type `getInboundHistory`
+
+*Хронология изменения статуса конкретной заявки на приемку товаров.*
 
 ```text
 POST /hs/ym/api/inbounds/statuses/history HTTP/1.1
@@ -100,19 +102,17 @@ Host: example.com
 Content-Type: application/xml
 ```
 
-Хронология изменения статуса конкретной заявки на приемку товаров
-
 - #### Подробная информация о заявке на приемку товаров
 
 type `getInbound`
+
+*Детальная информация о конкретной заявке на приемку товаров.*
 
 ```text
 POST /hs/ym/api/inbounds/details HTTP/1.1
 Host: example.com
 Content-Type: application/xml
 ```
-
-Детальная информация о конкретной заявке на приемку товаров
 
 Пример
 
@@ -136,17 +136,19 @@ Content-Type: application/xml
 
 type `putOutbound`
 
+*Позволяет создавать новые и изменять существующиеся заявки на планируемую отгрузку товаров со склада.*
+
 ```text
 POST /hs/ym/api/outbounds HTTP/1.1
 Host: example.com
 Content-Type: application/xml
 ```
 
-Позволяет создавать новые и изменять существующиеся заявки на планируемую отгрузку товаров со склада.
-
 - #### Формирование или изменение реестра отгрузки товаров
 
 type `putOutboundRegistry`
+
+*Применяется для регистрации плана отгрузки товаров на склад с детализацией по номенклатуре и количеству. Также с помощью запроса можно обновить реестр, который был создан ранее.*
 
 ```text
 POST /hs/ym/api/outbounds/registries HTTP/1.1
@@ -154,11 +156,11 @@ Host: example.com
 Content-Type: application/xml
 ```
 
-Применяется для регистрации плана отгрузки товаров на склад с детализацией по номенклатуре и количеству. Также с помощью запроса можно обновить реестр, который был создан ранее.
-
 - #### Получение актуальной информации о статусе заявки на отгрузку
 
 type `getOutboundStatus`
+
+*Метод позволяет узнать текущие статусы отправок.*
 
 ```text
 POST /hs/ym/api/outbounds/statuses HTTP/1.1
@@ -166,11 +168,11 @@ Host: example.com
 Content-Type: application/xml
 ```
 
-Метод позволяет узнать текущие статусы отправок
-
 - #### История изменений статуса заявки на отправку
 
 type `getOutboundHistory`
+
+*Хронология изменения статуса заявки на отправку / отгрузку товаров.*
 
 ```text
 POST /hs/ym/api/outbounds/statuses/history HTTP/1.1
@@ -178,11 +180,11 @@ Host: example.com
 Content-Type: application/xml
 ```
 
-Хронология изменения статуса заявки на отправку / отгрузку товаров
-
 - #### Подробная информация о заявке на отгрузку товаров
 
 type `getOutbound`
+
+*Детальная информация об исполнении заявки на отгрузку товаров.*
 
 ```text
 POST /hs/ym/api/outbounds/details HTTP/1.1
@@ -190,13 +192,13 @@ Host: example.com
 Content-Type: application/xml
 ```
 
-Детальная информация об исполнении заявки на отгрузку товаров
-
 ### `Остатки товаров`
 
 - #### Информация об остатках товарных единиц на складе
 
 type `getStocks`
+
+*Данные об уровне остатков товаров на складе.*
 
 ```text
 POST /hs/ym/api/inbounds/stocks HTTP/1.1
@@ -217,8 +219,6 @@ Content-Type: application/xml
     </request>
 </root>
 ```
-
-Данные об уровне остатков товаров на складе
 
 ---
 **Автор:** rmartynenko  
