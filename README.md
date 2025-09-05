@@ -3,7 +3,7 @@
 
 [![DSF logo](https://img.shields.io/badge/DSF%20Trading-blue?link=https%3A%2F%2Fdsf.kz%2F
 )](https://dsf.kz)
-[![Extension version](https://img.shields.io/badge/extension-1.0.1.17-blue
+[![Extension version](https://img.shields.io/badge/extension-1.0.1.18-blue
 )](https://dsf.kz)
 [![MarketApi](https://img.shields.io/badge/%D0%9E%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5%20API%20%D0%B4%D0%BB%D1%8F%20%D0%B2%D0%B7%D0%B0%D0%B8%D0%BC%D0%BE%D0%B4%D0%B5%D0%B9%D1%81%D1%82%D0%B2%D0%B8%D1%8F-xml-green?style=flat-square&logo=%23F9AB00&link=https%3A%2F%2Fyandex.ru%2Fdev%2Fmarket%2Ffulfillment%2Fru%2F
 )](https://yandex.ru/dev/market/fulfillment/ru/)
@@ -15,8 +15,7 @@
 ## Дерево методов
 
 ```text
-hs/ym/api/
-├── health                  # Проверка доступности
+┌── health                  # Проверка доступности
 ├── send-data               # Универсальный метод для отправки сообщений в сервис
 ├── v1
 │   ├── inbounds            # Заявка на приемку товаров [putInbound]
@@ -69,7 +68,7 @@ Content-Type: application/xml
 type `putInbound`
 
 ```text
-POST /hs/ym/api/v1/inbounds HTTP/1.1
+POST /hs/ym/api/putInbound HTTP/1.1
 Host: example.com
 Content-Type: application/xml
 ```
@@ -81,7 +80,7 @@ Content-Type: application/xml
 type `putInboundRegistry`
 
 ```text
-POST /hs/ym/api/v1/inbounds/registries HTTP/1.1
+POST /hs/ym/api/putInboundRegistry HTTP/1.1
 Host: example.com
 Content-Type: application/xml
 ```
@@ -93,7 +92,7 @@ Content-Type: application/xml
 type `getInboundStatus`
 
 ```text
-POST /hs/ym/api/v1/inbounds/statuses HTTP/1.1
+POST /hs/ym/api/getInboundStatus HTTP/1.1
 Host: example.com
 Content-Type: application/xml
 ```
@@ -101,7 +100,7 @@ Content-Type: application/xml
 type `getInboundsStatus`
 
 ```text
-POST /hs/ym/api/v2/inbounds/statuses HTTP/1.1
+POST /hs/ym/api/getInboundsStatus HTTP/1.1
 Host: example.com
 Content-Type: application/xml
 ```
@@ -113,7 +112,7 @@ Content-Type: application/xml
 type `getInboundStatusHistory`
 
 ```text
-POST /hs/ym/api/v1/inbounds/statuses/history HTTP/1.1
+POST /hs/ym/api/getInboundStatusHistory HTTP/1.1
 Host: example.com
 Content-Type: application/xml
 ```
@@ -121,7 +120,7 @@ Content-Type: application/xml
 type `getInboundHistory`
 
 ```text
-POST /hs/ym/api/v2/inbounds/statuses/history HTTP/1.1
+POST /hs/ym/api/getInboundHistory HTTP/1.1
 Host: example.com
 Content-Type: application/xml
 ```
@@ -133,7 +132,7 @@ Content-Type: application/xml
 type `getInbound`
 
 ```text
-POST /hs/ym/api/v1/inbounds/details HTTP/1.1
+POST /hs/ym/api/getInbound HTTP/1.1
 Host: example.com
 Content-Type: application/xml
 ```
@@ -163,7 +162,7 @@ Content-Type: application/xml
 type `putOutbound`
 
 ```text
-POST /hs/ym/api/v1/outbounds HTTP/1.1
+POST /hs/ym/api/putOutbound HTTP/1.1
 Host: example.com
 Content-Type: application/xml
 ```
@@ -175,7 +174,7 @@ Content-Type: application/xml
 type `putOutboundRegistry`
 
 ```text
-POST /hs/ym/api/v1/outbounds/registries HTTP/1.1
+POST /hs/ym/api/putOutboundRegistry HTTP/1.1
 Host: example.com
 Content-Type: application/xml
 ```
@@ -187,7 +186,7 @@ Content-Type: application/xml
 type `getOutboundStatus`
 
 ```text
-POST /hs/ym/api/v1/outbounds/statuses HTTP/1.1
+POST /hs/ym/api/getOutboundStatus HTTP/1.1
 Host: example.com
 Content-Type: application/xml
 ```
@@ -195,7 +194,7 @@ Content-Type: application/xml
 type `getOutboundsStatus`
 
 ```text
-POST /hs/ym/api/v2/outbounds/statuses HTTP/1.1
+POST /hs/ym/api/getOutboundsStatus HTTP/1.1
 Host: example.com
 Content-Type: application/xml
 ```
@@ -207,7 +206,7 @@ Content-Type: application/xml
 type `getOutboundStatusHistory`
 
 ```text
-POST /hs/ym/api/v1/outbounds/statuses/history HTTP/1.1
+POST /hs/ym/api/getOutboundStatusHistory HTTP/1.1
 Host: example.com
 Content-Type: application/xml
 ```
@@ -215,7 +214,7 @@ Content-Type: application/xml
 type `getOutboundHistory`
 
 ```text
-POST /hs/ym/api/v2/outbounds/statuses/history HTTP/1.1
+POST /hs/ym/api/getOutboundHistory HTTP/1.1
 Host: example.com
 Content-Type: application/xml
 ```
@@ -227,7 +226,7 @@ Content-Type: application/xml
 type `getOutbound`
 
 ```text
-POST /hs/ym/api/v1/outbounds/details HTTP/1.1
+POST /hs/ym/api/getOutbound HTTP/1.1
 Host: example.com
 Content-Type: application/xml
 ```
@@ -241,7 +240,7 @@ Content-Type: application/xml
 type `getStocks`
 
 ```text
-POST /hs/ym/api/v1/inbounds/stocks HTTP/1.1
+POST /hs/ym/api/getStocks HTTP/1.1
 Host: example.com
 Content-Type: application/xml
 ```
@@ -263,4 +262,4 @@ Content-Type: application/xml
 ---
 **Автор:** rmartynenko  
 **Дата создания:** 2025  
-**Версия:** 1.0.4
+**Версия:** 1.0.6
